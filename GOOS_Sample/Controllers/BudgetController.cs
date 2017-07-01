@@ -1,6 +1,5 @@
 ﻿using System.Web.Mvc;
 using GOOS_Sample.Models;
-using GOOS_Sample.Models.DataModels;
 using GOOS_Sample.Models.ViewModels;
 
 namespace GOOS_Sample.Controllers
@@ -8,11 +7,6 @@ namespace GOOS_Sample.Controllers
     public class BudgetController : Controller
     {
         private IBudgetService budgetService;
-
-        public BudgetController()
-        {
-            this.budgetService = new BudgetService();
-        }
 
         public BudgetController(IBudgetService budgetService)
         {

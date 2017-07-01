@@ -2,6 +2,7 @@
 using System.Web.Mvc;
 using FluentAssertions;
 using GOOS_Sample.Controllers;
+using GOOS_Sample.Models;
 using GOOS_Sample.Models.ViewModels;
 using GOOS_SampleTests.DataModelsForIntegrationTest;
 using TechTalk.SpecFlow;
@@ -12,7 +13,7 @@ namespace GOOS_SampleTests.Steps
     [Binding]
     public class BudgetControllerSteps
     {
-        private BudgetController _budgetController = new BudgetController();
+        private BudgetController _budgetController = new BudgetController(new BudgetService());
 
         //[BeforeScenario()]
         //public void BeforeScenario()
