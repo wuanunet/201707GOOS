@@ -17,7 +17,9 @@ namespace GOOS_SampleTests.Models
         public void CreateTest_should_invoke_repository_one_time()
         {
             this._budgetService = new BudgetService(_budgetRepositoryStub);
+
             var model = new BudgetAddViewModel { Amount = 2000, Month = "2017-02" };
+
             this._budgetService.Create(model);
             _budgetRepositoryStub.Received()
                 .Save(Arg.Is<Budget>(x => x.Amount == 2000 && x.YearMonth == "2017-02"));

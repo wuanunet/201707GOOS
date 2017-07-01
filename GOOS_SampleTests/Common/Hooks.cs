@@ -56,6 +56,7 @@ namespace GOOS_SampleTests.Common
         public static void RegisterDIContainer()
         {
             UnityContainer = new UnityContainer();
+            UnityContainer.RegisterType<IRepository<Budget>, BudgetRepository>();
             UnityContainer.RegisterType<IBudgetService, BudgetService>();
         }
 
