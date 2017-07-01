@@ -12,13 +12,18 @@ namespace GOOS_SampleTests.Steps
     [Binding]
     public class BudgetControllerSteps
     {
-        private BudgetController _budgetController;
+        private BudgetController _budgetController = new BudgetController();
 
-        [BeforeScenario()]
-        public void BeforeScenario()
-        {
-            this._budgetController = new BudgetController();
-        }
+        //[BeforeScenario()]
+        //public void BeforeScenario()
+        //{
+        //    this._budgetController = new BudgetController();
+
+        //    using (var dbcontext = new NorthwindEntitiesForTest())
+        //    {
+        //        dbcontext.Database.ExecuteSqlCommand("TRUNCATE TABLE [Budgets]");
+        //    }
+        //}
 
         [When(@"add a budget")]
         public void WhenAddABudget(Table table)
