@@ -113,6 +113,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\Hooks.cs" />
     <Compile Include="Features\BudgetCreate.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

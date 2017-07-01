@@ -15,12 +15,6 @@ namespace GOOS_SampleTests.Steps
             this._budgetCreatePage = new BudgetCreatePage(this);
         }
 
-        [BeforeScenario()]
-        public void BeforeScenario()
-        {
-            SeleniumWebDriver.Bootstrap(SeleniumWebDriver.Browser.Chrome);
-        }
-
         [Given(@"go to adding budget page")]
         public void GivenGoToAddingBudgetPage()
         {
@@ -30,7 +24,6 @@ namespace GOOS_SampleTests.Steps
         [When(@"I add a buget (.*) for ""(.*)""")]
         public void WhenIAddABugetFor(int amount, string yearMonth)
         {
-
             this._budgetCreatePage
                 .Amount(amount)
                 .Month(yearMonth)
