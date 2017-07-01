@@ -20,9 +20,15 @@ namespace GOOS_SampleTests.Models
 
             var model = new BudgetAddViewModel { Amount = 2000, Month = "2017-02" };
 
+            var wasCreated = false;
+            this._budgetService.Created += (sender, args) => { wasCreated = true; };
+
             this._budgetService.Create(model);
+
             _budgetRepositoryStub.Received()
                 .Save(Arg.Is<Budget>(x => x.Amount == 2000 && x.YearMonth == "2017-02"));
+
+            Assert.IsTrue(wasCreated);
         }
 
         [TestMethod()]
@@ -36,10 +42,15 @@ namespace GOOS_SampleTests.Models
 
             var model = new BudgetAddViewModel { Amount = 2000, Month = "2017-02" };
 
+            var wasUpdated = false;
+            this._budgetService.Updated += (sender, args) => { wasUpdated = true; };
+
             this._budgetService.Create(model);
 
             _budgetRepositoryStub.Received()
                 .Save(Arg.Is<Budget>(x => x == budgetFromDb && x.Amount == 2000));
+
+            Assert.IsTrue(wasUpdated);
         }
     }
 }
